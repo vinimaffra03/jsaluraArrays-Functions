@@ -1,6 +1,7 @@
 // Declaração de algumas variaveis 
 
 let numeroSecreto = gerarNumeroAleatorio();
+let numeroDeTentativas = 1;
 
 // INTERAGINDO COM HTML -------------------------------------------------------------------------------
 
@@ -53,13 +54,19 @@ function verificarChute() {
     
     // verificando acerto e dicas de proximidade do número correto !
     if (chute == numeroSecreto) {
+        
         exibirTextoNaTela("h1", "Parabéns, você acertou !");
-        exibirTextoNaTela("p", "");
+        let palavraTentativa = numeroDeTentativas > 1 ? "tentativas" : "tentiva";
+        let mensagemTentativas = `Você acertou o número secreto com ${numeroDeTentativas} ${palavraTentativa}!`;
+        exibirTextoNaTela("p", mensagemTentativas);
     } else {
+
         if (chute > numeroSecreto) {
             exibirTextoNaTela("p", "O número secreto é menor !");
         } else {
             exibirTextoNaTela("p", "O número secreto é maior !");
         }
+        // adição número de tentativas
+        numeroDeTentativas++;
     }
 }
