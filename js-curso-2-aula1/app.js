@@ -5,7 +5,7 @@ let numeroDeTentativas = 1;
 
 // INTERAGINDO COM HTML -------------------------------------------------------------------------------
 
-let titulo = document.querySelector("h1"); //selecionando tags para variavel e printando um texto no html 
+/* let titulo = document.querySelector("h1"); //selecionando tags para variavel e printando um texto no html 
 titulo.innerHTML = "Jogo do número Secreto";
 
 let paragrafo = document.querySelector("p");
@@ -24,8 +24,12 @@ function exibirTextoNaTela(tag, texto) {
     campo.innerHTML = texto;
 }
 
-exibirTextoNaTela("h1", "Jogo do número Secreto");
-exibirTextoNaTela("p", "Escolha um número entre 1 e 10 !");
+function exibirMensagemInicial() {
+    exibirTextoNaTela("h1", "Jogo do número Secreto");
+    exibirTextoNaTela("p", "Escolha um número entre 1 e 10 !");
+}
+
+exibirMensagemInicial();
 
 // funções com retorno ***
 
@@ -76,6 +80,24 @@ function verificarChute() {
 }
 
 function limparCampo() {
+    // resetar input
     chute = document.querySelector("input");
     chute.value = "";
+}
+
+function reiniciarJogo() {
+    // gerar novo número aleatório
+    numeroSecreto = gerarNumeroAleatorio();
+
+    // resetar o input do chute
+    limparCampo();
+
+    // resetar o número de tentativas 
+    numeroDeTentativas = 1;
+
+    // reiniciar texto inicial
+    exibirMensagemInicial();
+
+    // desabilitar botao de novo jogo
+    document.getElementById("reiniciar").setAttribute("disabled, true");
 }
