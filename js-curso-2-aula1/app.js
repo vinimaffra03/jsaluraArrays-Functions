@@ -54,11 +54,13 @@ function verificarChute() {
     
     // verificando acerto e dicas de proximidade do número correto !
     if (chute == numeroSecreto) {
-        
+
         exibirTextoNaTela("h1", "Parabéns, você acertou !");
         let palavraTentativa = numeroDeTentativas > 1 ? "tentativas" : "tentiva";
         let mensagemTentativas = `Você acertou o número secreto com ${numeroDeTentativas} ${palavraTentativa}!`;
         exibirTextoNaTela("p", mensagemTentativas);
+        document.getElementById("reiniciar").removeAttribute("disabled");
+
     } else {
 
         if (chute > numeroSecreto) {
@@ -69,4 +71,9 @@ function verificarChute() {
         // adição número de tentativas
         numeroDeTentativas++;
     }
+}
+
+function limparCampo() {
+    chute = document.querySelector("input");
+    chute.value = "";
 }
