@@ -59,6 +59,8 @@ function verificarChute() {
         let palavraTentativa = numeroDeTentativas > 1 ? "tentativas" : "tentiva";
         let mensagemTentativas = `Você acertou o número secreto com ${numeroDeTentativas} ${palavraTentativa}!`;
         exibirTextoNaTela("p", mensagemTentativas);
+
+        // remover atributos da tag botao
         document.getElementById("reiniciar").removeAttribute("disabled");
 
     } else {
