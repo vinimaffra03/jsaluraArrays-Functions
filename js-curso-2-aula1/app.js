@@ -99,5 +99,5 @@ function reiniciarJogo() {
     exibirMensagemInicial();
 
     // desabilitar botao de novo jogo
-    document.getElementById("reiniciar").setAttribute("disabled, true");
+    document.getElementById("reiniciar").setAttribute("disabled", "true");
 }
