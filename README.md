@@ -1,4 +1,4 @@
-# 🎮 Jogo do Número Secreto  
+# 🎮 Jogo do Número Secreto  by Vinicius Mafra
 
 Bem-vindo ao **Jogo do Número Secreto**! Este é um simples jogo desenvolvido em **HTML, CSS e JavaScript**, onde o jogador deve adivinhar um número aleatório gerado pelo sistema.  
 
