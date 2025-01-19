@@ -1,5 +1,6 @@
 // Declaração de algumas variaveis 
-
+let listaDeNumerosEscolhidos = []; // lista para evitar repetição dos números
+let numeroLimite = 10; // limitação de números possiveis no jogo
 let numeroSecreto = gerarNumeroAleatorio();
 let numeroDeTentativas = 1;
 
@@ -34,7 +35,22 @@ exibirMensagemInicial();
 // funções com retorno ***
 
 function gerarNumeroAleatorio() {
-   return parseInt(Math.random() * 10 + 1);
+   let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
+   let quantidadeDeElementosNaLista = listaDeNumerosEscolhidos.length;
+
+    // corrigir bug de alcance de números máximos
+    if (quantidadeDeElementosNaLista == numeroLimite) {
+        listaDeNumerosEscolhidos = [];
+    }
+
+    // evitar repetições de números
+   if (listaDeNumerosEscolhidos.includes(numeroEscolhido)) {
+        return gerarNumeroAleatorio();
+   } else {
+    listaDeNumerosEscolhidos.push(numeroEscolhido);
+    console.log(listaDeNumerosEscolhidos);
+    return numeroEscolhido;
+   }
 }
 
 // tipo booleano ***
